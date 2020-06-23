@@ -31,7 +31,7 @@ namespace TCS.Util
         {
             treeView.Nodes.Clear();
 
-            if (IsJOjbect(json))
+            if (IsJObject(json))
             {
                 JObject jo = (JObject)JsonConvert.DeserializeObject(json);
 
@@ -81,7 +81,7 @@ namespace TCS.Util
                 }
             }
         }
-        private static bool IsJOjbect(string value)
+        private static bool IsJObject(string value)
         {
             try
             {

@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace TCS.Util
 {
-    public class SniList
+    public class SniList //实际上是个字典
     {
         private Dictionary<string, string> dic;
         public SniList()

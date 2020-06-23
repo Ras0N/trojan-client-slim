@@ -38,15 +38,16 @@ namespace TCS
             InitializeComponent();
             Config.tcs = this;
 
-            InitialTemp();
-
+            //初始化Temp文件夹，清除之前有的，之后新建文件夹。
+            InitialTemp(); 
+            //判断创建数据库文件夹是否存在
             if (!Directory.Exists("db"))
                 Directory.CreateDirectory("db");
 
-            ReadConfig();
+            ReadConfig();//config信息->config
 
 
-            if (File.Exists(TCSPath.Sni))
+            if (File.Exists(TCSPath.Sni))//sni.tcsdb
             {
                 try
                 {
@@ -137,7 +138,7 @@ namespace TCS
 
         private void ReadConfig()
         {
-            if (File.Exists(Config.DEFAULT_CONFIG_PATH))
+            if (File.Exists(Config.DEFAULT_CONFIG_PATH))//config.ini
             {
                 //IniData Config.iniData;
                 bool needWrite = false;
@@ -147,7 +148,7 @@ namespace TCS
                 {
                     iniParser.ReadFile(Config.DEFAULT_CONFIG_PATH);
                 }
-                catch
+                catch //未发现文件
                 {
                     ResetConfig();
                 }
@@ -172,7 +173,7 @@ namespace TCS
                 //verifyCert
                 try
                 {
-                    Config.verifyCert = bool.Parse(Config.iniData["TCS"]["VerifyCert"]);
+                    Config.verifyCert = bool.Parse(Config.iniData["TCS"]["VerifyCert"]);//验证标识？
                 }
                 catch
                 {
